@@ -2,14 +2,17 @@ import chess
 import random
 print("Luck V2 by PiKitty")
 print("WORK IN PROGRESS")
+print("endgame solver variation")
+print("input fen:")
+fn=input()
 board = chess.Board()
 fen=['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 ,'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1',
 'rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2']
 move=['e2e4','e7e5','g1f3']
 
-def minimax(depth,isMaxing,alpha,beta):
-    if depth == 0 or board.is_game_over():
+def minimax(isMaxing,alpha,beta):
+    if board.is_game_over():
         return evaluate_static_position()
     if isMaxing == True:
         to_move=''
@@ -18,7 +21,7 @@ def minimax(depth,isMaxing,alpha,beta):
         maxEval=-9999999999999
         while i != len(lis):
             board.push(lis[i])
-            evalu=minimax(depth-1,False,alpha,beta)
+            evalu=minimax(False,alpha,beta)
             if evalu > maxEval:
                 maxEval=evalu
                 to_move=lis[i]
@@ -36,7 +39,7 @@ def minimax(depth,isMaxing,alpha,beta):
         lis=list(board.legal_moves)
         while i != len(lis):            
             board.push(lis[i])
-            evalu=minimax(depth-1,True,alpha,beta)
+            evalu=minimax(True,alpha,beta)
             if evalu < minEval:
                 minEval=evalu
                 to_move = lis[i]
