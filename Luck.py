@@ -155,9 +155,9 @@ def make_move():
                     i+=1
         else:
             if board.turn == True:
-                minimax(5,True,-9999999999999999999999999999999999,9999999999999999999999999999999999999999999999)
+                minimax(True,-9999999999999999999999999999999999,9999999999999999999999999999999999999999999999)
             elif board.turn == False:
-                minimax(5,False,-9999999999999999999999999999999999,9999999999999999999999999999999999999999999999)
+                minimax(False,-9999999999999999999999999999999999,9999999999999999999999999999999999999999999999)
     elif chess.Move.from_uci(str(player)) in board.legal_moves:
         playermove=chess.Move.from_uci(player)
         board.push(playermove)
