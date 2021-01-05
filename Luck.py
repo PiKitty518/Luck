@@ -5,7 +5,7 @@ print("WORK IN PROGRESS")
 print("endgame solver variation")
 print("input fen:")
 fn=input()
-board = chess.Board()
+board = chess.Board(fn)
 fen=['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 ,'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1',
 'rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2']
